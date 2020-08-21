@@ -42,12 +42,13 @@
 #define SE95_CONF_DATA 0b00000000
 
 
-short gettemp_se95(unsigned char addr)
+char gettemp_se95(unsigned char addr)
 {
   /* read Thermometer t*/
  unsigned short i;
  unsigned char b;
  unsigned char ak;
+ char temp;
  ak=i2c_bbstart(addr, 0);
  
  
@@ -59,20 +60,17 @@ short gettemp_se95(unsigned char addr)
 
   i=i2c_bbrd(0);
   b=i2c_bbrd(1);
-  printf("i= %d", i);
-  printf("b= %d", b);
 
   i=(i<<8) | b;
-
  }else i=0x8000; /*Kein Sensor da: unwahrscheinlich kalt */
 
  i2c_bbstop();
-
+ 
  unsigned char vorzeichen = i >> 15;
  i = i & 0x7fff;
  i = i >> 3;
-
- return (short) i;
+ temp = i * 0.03125;
+ return temp;
 }
 
 void putch(char c){
@@ -86,16 +84,13 @@ void main(void) {
     
     //Scope variable declarations//
     int get_value;
-    short temp;
+    float temp;
     unsigned char ak;
     // Set internal clock speed to 8 MHz (1110)
-    //OSCCONbits.IRCF = 0x0E; // 15 or 0b00001110
-    //OSCCONbits.SCS = 0x03;
     OSCCON = 0b11110000;
     
-    LATA = 0;
-    LATC = 0;
-    
+    ANSELA = 0;
+    ANSELC = 0;
     //I/O Declarations//
     TRISCbits.TRISC2 = 0; //RC2 as Output PIN (LED)
        
@@ -122,8 +117,7 @@ while(1) //The infinite lop
          if (get_value=='1')
            {
               temp=gettemp_se95(TINNEN); /* read internal Temperature */
-              temp = 0x18F0;
-              printf("Temp = %f", (temp/8)*0.03125);
+              printf("Temp = %f", temp);
               RC2 = 1;  // LED ON
            }      
     }

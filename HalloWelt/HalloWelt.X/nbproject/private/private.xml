@@ -4,13 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/main.c</file>
+            <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/I2CMaster.h</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/PWM.c</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/bluetooth.h</file>
+            <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/I2CMaster.c</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/bluetooth.c</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/SE95.h</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/config.h</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/SE95.c</file>
             <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/PWM.h</file>
+            <file>file:/home/IBEO.AS/soe/Documents/GitHub/Mask_Project/HalloWelt/HalloWelt.X/globals.h</file>
         </group>
     </open-files>
 </project-private>

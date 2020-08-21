@@ -9,6 +9,7 @@
       <itemPath>SE95.h</itemPath>
       <itemPath>PWM.h</itemPath>
       <itemPath>globals.h</itemPath>
+      <itemPath>I2CMaster.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,7 +29,6 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>I2CMaster.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
