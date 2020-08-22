@@ -28,11 +28,11 @@ extern "C" {
  Define I2C Interface Function Prototypes
  ---------------------------------------------------------*/
 void i2c_init(void);
-unsigned char i2c1_restart(unsigned char addr); /* allways RD */
-unsigned char i2c1_start(unsigned char addr,unsigned char rnw);
-void i2c1_stop(void);
-unsigned char i2c1_wr(unsigned char);
-unsigned char i2c1_rd(unsigned char ackbit);
+unsigned char i2c_restart(unsigned char addr); /* allways RD */
+unsigned char i2c_start(unsigned char addr,unsigned char rnw);
+void i2c_stop(void);
+unsigned char i2c_wr(unsigned char);
+unsigned char i2c_rd(unsigned char ackbit);
 void I2C_Master_Init(const unsigned long c);
 void I2C_Master_Wait();
 void I2C_Master_Start();

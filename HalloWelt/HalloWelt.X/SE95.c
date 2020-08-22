@@ -24,7 +24,7 @@ void i2c_init(void) //Begin IIC as master
 
 
 /** The read function */
-unsigned char  i2c1_rd(unsigned char ackbit)
+unsigned char  i2c_rd(unsigned char ackbit)
 {
  unsigned char ucByteRead;
  SSP1CON2bits.RCEN = 1   ;      /* enable I2C receive mode(RCEN=0 after 8cks by hw) */
@@ -37,7 +37,7 @@ unsigned char  i2c1_rd(unsigned char ackbit)
  return ucByteRead;
 }
 
-unsigned char i2c1_restart(unsigned char adr)     /* RESTART I2C communication (change to 'reads')*/
+unsigned char i2c_restart(unsigned char adr)     /* RESTART I2C communication (change to 'reads')*/
 {
  SSP1CON2bits.RSEN = 1;         /* REPEATED START bit (cleared by hw in the end) */
  while (SSP1CON2bits.RSEN);     /* wait until Start cond Set */
@@ -49,7 +49,7 @@ unsigned char i2c1_restart(unsigned char adr)     /* RESTART I2C communication (
 }
 
 
-unsigned char i2c1_start(unsigned char adr,unsigned char rnw)
+unsigned char i2c_start(unsigned char adr,unsigned char rnw)
 {/* sets Master Mode Start conditon  */
  unsigned char ak;
  /* and sends address adr including R/W bit           */
@@ -65,14 +65,14 @@ unsigned char i2c1_start(unsigned char adr,unsigned char rnw)
 }
 
 /** Send STOP for the I2C1 COMMUNICATION */
-void i2c1_stop(void)       /* STOP I2C communication */
+void i2c_stop(void)       /* STOP I2C communication */
 {
  SSP1CON2bits.PEN = 1;    /* STOP bit (cleared by hw in the end) */
  while (SSP1CON2bits.PEN); /* wait until Stop cond set */
 }
 
 /** The write function returns ACK bit after Transfer */
-unsigned char i2c1_wr(unsigned char i2c_data) // writes a byte in the I2C SLAVE
+unsigned char i2c_wr(unsigned char i2c_data) // writes a byte in the I2C SLAVE
 {
  unsigned char ak;
  SSP1BUF = i2c_data      ;    /* load char in data buffer ; start streaming */
